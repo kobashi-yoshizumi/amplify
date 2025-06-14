@@ -2,21 +2,21 @@
 
 cf_temp/amplify.yaml    Amplify CFテンプレート  
 front/    REACTプログラム  
-フロント側  
+
+フロントURL  
 https://main.d5jyd9buwcmp8.amplifyapp.com/
   
 ID kobashi  
 PW Yoshizumi1+
 
-でログイン可能　　COGNITO認証＝APPSYNC＝DYNAMO
-DYNAMOに入っているサンプルレコードをもってきている。
+でログイン可能　　
+COGNITO認証＝APPSYNC＝DYNAMO  
+DYNAMOに入っているサンプルレコードをもってきて表示。
 
 
 
 
-## 構築手順  
-
-SSM登録コマンド  
+## SSM登録コマンド  
 
 aws ssm put-parameter \
   --name "AppSyncAPIURL" \
@@ -35,8 +35,6 @@ aws ssm put-parameter \
   --value "*************************************" \
   --type "String" \
   --region ap-northeast-1
-
-
 
 
 
