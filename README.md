@@ -1,4 +1,4 @@
-サンプルAMPLIFY  
+#サンプルAMPLIFY  
 
 cf_temp/amplify.yaml    Amplify CFテンプレート  
 front/    REACTプログラム  
@@ -14,7 +14,7 @@ DYNAMOに入っているサンプルレコードをもってきている。
 
 
 
-構築手順  
+##構築手順  
 
 SSM登録コマンド  
 
@@ -41,7 +41,7 @@ aws ssm put-parameter \
 
 
 
-CFテンプレートからAMPLIFY環境構築  
+##CFテンプレートからAMPLIFY環境構築  
 
 aws cloudformation deploy \
   --template-file cf_temp/amplify.yaml \
@@ -60,8 +60,8 @@ AMPLIFY環境構築は初回はAWSコマンドで手動で行う。
 それ以後はGITにPUSHすればパイプライン経由でフロント側ソースは自動デプロイされます。  
 
 
- 
-PATの扱い    
+
+##PATの扱い    
 aws cloudformation deploy　ではPATは必須  
 以降のGITHUB＝＞AMPLIFYでのデプロイ時でもPAT自体は必要（GIT HUB側でPAT削除するとデプロイできなくなる、テンプレから環境作り直しになる）  
 
@@ -69,7 +69,7 @@ aws cloudformation deploy　ではPATは必須
 PATの中身まではAWSは記録していないが、初期構築に使ったPATに対して、何かの記録はしてる模様  
 資料にあったパスワードを記録しないというのはそうゆう意味か？  
 
-PAT有効期限切れたらデプロイができなくなるかは現在仕込み中（月曜日には切れるようにした）  
+PAT有効期限切れたらデプロイができなくなるかは現在仕込み中（月曜日には期限が切れるようにした）  
 
 PAT有効期限の結果が出たら追加質問予定
 
