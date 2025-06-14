@@ -43,7 +43,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
-      <h1>HAY! Welcome {user.username}!</h1>
+      <h1>Welcome {user.username}!</h1>
       <button
         style={{
           padding: "10px 20px",
