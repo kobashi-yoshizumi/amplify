@@ -25,9 +25,12 @@ Resources:
       OauthToken: !Ref OauthToken
       Platform: WEB
       EnvironmentVariables:
-        APP_SYNC_URL: '{{resolve:ssm:AppSyncAPIURL:1}}'
-        USER_POOL_ID: '{{resolve:ssm:UserPoolId:1}}'
-        USER_POOL_CLIENT_ID: '{{resolve:ssm:UserPoolClientId:1}}'
+        - Name: APP_SYNC_URL
+          Value: '{{resolve:ssm:AppSyncAPIURL:1}}'
+        - Name: USER_POOL_ID
+          Value: '{{resolve:ssm:UserPoolId:1}}'
+        - Name: USER_POOL_CLIENT_ID
+          Value: '{{resolve:ssm:UserPoolClientId:1}}'
       BuildSpec: |
         version: 1
         frontend:
