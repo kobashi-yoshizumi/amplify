@@ -57,5 +57,10 @@ aws cloudformation deploy \
 
 
 
+AMPLIFY環境構築は初回はAWSコマンドで手動で行う。
+それ以後はGITにPUSHすればパイプライン経由でフロント側ソースは自動デプロイされます。
+
+
+
 
 
