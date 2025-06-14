@@ -8,6 +8,10 @@ https://main.dsdx6h2rsyz5f.amplifyapp.com/
 ID kobashi  
 PW Yoshizumi1+
 
+でログイン可能　　COGNITO認証＝APPSYNC＝DYNAMO
+DYNAMOに入っているサンプルレコードをもってきている。
+
+
 
 
 構築手順  
@@ -31,6 +35,8 @@ aws ssm put-parameter \
   --value "*************************************" \
   --type "String" \
   --region ap-northeast-1
+
+
 
 
 
