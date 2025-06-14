@@ -1,4 +1,4 @@
-#サンプルAMPLIFY  
+# サンプルAMPLIFY  
 
 cf_temp/amplify.yaml    Amplify CFテンプレート  
 front/    REACTプログラム  
@@ -14,7 +14,7 @@ DYNAMOに入っているサンプルレコードをもってきている。
 
 
 
-##構築手順  
+## 構築手順  
 
 SSM登録コマンド  
 
@@ -41,7 +41,7 @@ aws ssm put-parameter \
 
 
 
-##CFテンプレートからAMPLIFY環境構築  
+## CFテンプレートからAMPLIFY環境構築  
 
 aws cloudformation deploy \
   --template-file cf_temp/amplify.yaml \
@@ -61,7 +61,7 @@ AMPLIFY環境構築は初回はAWSコマンドで手動で行う。
 
 
 
-##PATの扱い    
+## PATの扱い    
 aws cloudformation deploy　ではPATは必須  
 以降のGITHUB＝＞AMPLIFYでのデプロイ時でもPAT自体は必要（GIT HUB側でPAT削除するとデプロイできなくなる、テンプレから環境作り直しになる）  
 
