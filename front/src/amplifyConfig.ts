@@ -1,3 +1,4 @@
+import { GraphQLAuthMode } from './amplifyAuthModes';
 const amplifyConfig = {
   Auth: {
     Cognito: {
