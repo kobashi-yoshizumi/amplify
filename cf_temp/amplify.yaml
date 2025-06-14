@@ -46,7 +46,6 @@ Resources:
               - npm ci
             build:
               commands:
-                - cd front
                 - npm run build
           artifacts:
             baseDirectory: front/dist
