@@ -1,5 +1,11 @@
 構築手順
 
+
+cf_temp/amplify.yaml    Amplify CFテンプレート
+front/    REACTプログラム
+
+
+
 SSM登録コマンド
 
 aws ssm put-parameter \
