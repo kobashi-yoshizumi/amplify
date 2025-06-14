@@ -3,7 +3,7 @@
 cf_temp/amplify.yaml    Amplify CFテンプレート  
 front/    REACTプログラム  
 フロント側  
-https://main.dsdx6h2rsyz5f.amplifyapp.com/
+https://main.d5jyd9buwcmp8.amplifyapp.com/
   
 ID kobashi  
 PW Yoshizumi1+
@@ -52,7 +52,7 @@ aws cloudformation deploy \
     AppName=amplify-react-app \
     Repository=https://github.com/kobashi-yoshizumi/amplify.git \
     BranchName=main \
-    OauthToken=最新のPAT
+    OauthToken=PAT
 
 
 
