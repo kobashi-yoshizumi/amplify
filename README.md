@@ -1,19 +1,18 @@
-サンプルAMPLIFY
+サンプルAMPLIFY  
 
-cf_temp/amplify.yaml    Amplify CFテンプレート
-front/    REACTプログラム
-フロント側
+cf_temp/amplify.yaml    Amplify CFテンプレート  
+front/    REACTプログラム  
+フロント側  
 https://main.dsdx6h2rsyz5f.amplifyapp.com/
-
-ID kobashi
+  
+ID kobashi  
 PW Yoshizumi1+
 
 
 
-構築手順
+構築手順  
 
-
-SSM登録コマンド
+SSM登録コマンド  
 
 aws ssm put-parameter \
   --name "AppSyncAPIURL" \
