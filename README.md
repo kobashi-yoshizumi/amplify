@@ -1,9 +1,16 @@
-構築手順
-
+サンプルAMPLIFY
 
 cf_temp/amplify.yaml    Amplify CFテンプレート
 front/    REACTプログラム
+フロント側
+https://main.dsdx6h2rsyz5f.amplifyapp.com/
 
+ID kobashi
+PW Yoshizumi1+
+
+
+
+構築手順
 
 
 SSM登録コマンド
@@ -29,7 +36,7 @@ aws ssm put-parameter \
 
 
 
-CFテンプレートでAMPLIFY環境構築
+CFテンプレートからAMPLIFY環境構築
 
 aws cloudformation deploy \
   --template-file cf_temp/amplify.yaml \
