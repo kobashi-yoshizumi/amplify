@@ -37,12 +37,12 @@ Resources:
           phases:
             preBuild:
               commands:
-              - echo "Generating .env file from Amplify Environment Variables..."
-              - echo "VITE_APP_SYNC_URL=$APP_SYNC_URL" >> front/.env
-              - echo "VITE_USER_POOL_ID=$USER_POOL_ID" >> front/.env
-              - echo "VITE_USER_POOL_CLIENT_ID=$USER_POOL_CLIENT_ID" >> front/.env
-              - cat front/.env
               - cd front
+              - echo "Generating .env file from Amplify Environment Variables..."
+              - echo "VITE_APP_SYNC_URL=$APP_SYNC_URL" >> .env
+              - echo "VITE_USER_POOL_ID=$USER_POOL_ID" >> .env
+              - echo "VITE_USER_POOL_CLIENT_ID=$USER_POOL_CLIENT_ID" >> .env
+              - cat .env
               - npm ci
             build:
               commands:
