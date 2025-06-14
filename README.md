@@ -1,6 +1,7 @@
 構築手順
 
 SSM登録コマンド
+
 aws ssm put-parameter \
   --name "AppSyncAPIURL" \
   --value "***********************************" \
@@ -22,6 +23,7 @@ aws ssm put-parameter \
 
 
 CFテンプレートでAMPLIFY環境構築
+
 aws cloudformation deploy \
   --template-file cf_temp/amplify.yaml \
   --stack-name amplify-app-stack \
