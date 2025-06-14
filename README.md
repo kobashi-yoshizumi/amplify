@@ -61,7 +61,7 @@ AMPLIFY環境構築は初回はAWSコマンドで手動で行う。
 
 ## PATの扱い    
 aws cloudformation deploy　ではPATは必須  
-以降のGITHUB＝＞AMPLIFYでのデプロイ時でもPAT自体は必要  
+以降のGITHUB＝＞AMPLIFYでのアプリ側デプロイ時でもPAT自体は必要  
 （GIT HUB側でPAT削除するとデプロイできなくなる、テンプレから環境作り直しになる）  
   
 ただしPATの中身を作りなおししても問題ない（PAT値の最生成、権限を極限までなくしても影響なし）  　
