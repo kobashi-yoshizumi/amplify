@@ -4,7 +4,9 @@ cf_temp/amplify.yaml    Amplify CFテンプレート
 front/    REACTプログラム  
 
 フロントURL  
-https://main.d5jyd9buwcmp8.amplifyapp.com/
+https://ksc.asia  独自ドメイン
+https://main.d5jyd9buwcmp8.amplifyapp.com/　AMPLIFY割り当て
+
   
 ID kobashi  
 PW Yoshizumi1+
