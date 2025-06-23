@@ -1,0 +1,74 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Fully automated Amplify React App with GitHub integration and front/ subdirectory support.
+
+Parameters:
+  AppName:
+    Type: String
+    Description: Amplify App Name
+  Repository:
+    Type: String
+    Description: GitHub Repository URL
+  BranchName:
+    Type: String
+    Description: GitHub Branch Name
+  OauthToken:
+    Type: String
+    Description: GitHub Personal Access Token (PAT)
+    NoEcho: true
+
+Resources:
+  AmplifyApp:
+    Type: AWS::Amplify::App
+    Properties:
+      Name: !Ref AppName
+      Repository: !Ref Repository
+      OauthToken: !Ref OauthToken
+      Platform: WEB
+      EnvironmentVariables:
+        - Name: APP_SYNC_URL
+          Value: '{{resolve:ssm:AppSyncAPIURL:1}}'
+        - Name: USER_POOL_ID
+          Value: '{{resolve:ssm:UserPoolId:1}}'
+        - Name: USER_POOL_CLIENT_ID
+          Value: '{{resolve:ssm:UserPoolClientId:1}}'
+        - Name: DUMMY_PARAM
+          Value: '{{resolve:ssm:UserPoolClientId:1}}'
+
+      BuildSpec: |
+        version: 1
+        frontend:
+          phases:
+            preBuild:
+              commands:
+              - cd front
+              - echo "Generating .env file from Amplify Environment Variables..."
+              - echo "VITE_APP_SYNC_URL=$APP_SYNC_URL" >> .env
+              - echo "VITE_USER_POOL_ID=$USER_POOL_ID" >> .env
+              - echo "VITE_USER_POOL_CLIENT_ID=$USER_POOL_CLIENT_ID" >> .env
+              - cat .env
+              - npm ci
+            build:
+              commands:
+                - npm run build
+          artifacts:
+            baseDirectory: front/dist
+            files:
+              - '**/*'
+          cache:
+            paths:
+              - front/node_modules/**/*
+
+  AmplifyDomain:
+    Type: AWS::Amplify::Domain
+    Properties:
+      AppId: !GetAtt AmplifyApp.AppId
+      DomainName: ksc.asia
+      SubDomainSettings:
+        - Prefix: 'sub'
+          BranchName: !Ref BranchName
+
+  AmplifyBranch:
+    Type: AWS::Amplify::Branch
+    Properties:
+      AppId: !GetAtt AmplifyApp.AppId
+      BranchName: !Ref BranchName
