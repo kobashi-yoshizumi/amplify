@@ -57,6 +57,16 @@ Resources:
           cache:
             paths:
               - front/node_modules/**/*
+
+  AmplifyDomain:
+    Type: AWS::Amplify::Domain
+    Properties:
+      AppId: !GetAtt AmplifyApp.AppId
+      DomainName: ksc.asia
+      SubDomainSettings:
+        - Prefix: ''
+          BranchName: !Ref BranchName
+
   AmplifyBranch:
     Type: AWS::Amplify::Branch
     Properties:
