@@ -4,8 +4,8 @@ cf_temp/amplify.yaml    Amplify CFテンプレート
 front/    REACTプログラム  
 
 フロントURL  
-https://ksc.asia  独自ドメイン
-https://main.d5jyd9buwcmp8.amplifyapp.com/　AMPLIFY割り当て
+https://ksc.asia  独自ドメイン  
+https://main.d5jyd9buwcmp8.amplifyapp.com  AMPLIFY割り当て  
 
   
 ID kobashi  
@@ -74,6 +74,21 @@ PATの中身まではAWSは記録していないが、初期構築に使ったPA
 PAT有効期限切れたらデプロイができなくなるかは現在仕込み中（月曜日には期限が切れるようにした）  
 
 PAT有効期限の結果が出たら追加質問予定
+
+
+
+## カスタムドメインについて
+cf_temp/amplify.yaml にカスタムドメイン　ksc.asiaに対してAMPLIFYホスティング割り当てる処理を追加  
+
+注意点  
+aws cloudformation deploy で更新されるが、空デプロイでもいいので何かGITHUBから展開しないとページが出なかった  
+ドメイン割り当てにやや時間がかかる（１０分程度）  
+
+
+PAT消失により作り直しが必要な場合、計画停止が必要と思われる
+計画停止がNGな場合、別ドメインでAMPLIFYホスティングを用意してROUTE53で割り当てを 元のドメイン書き換えるなどで対応できそうだが、
+なるべくCFテンプレて環境を完結させる趣旨で考えると、やるべきではなさそう。
+
 
 
 
