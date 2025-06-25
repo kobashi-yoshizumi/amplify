@@ -99,5 +99,21 @@ PAT消失により作り直しが必要な場合、復旧には計画停止が�
 
 
 
+## CF作成
+CFドメイン確認
+aws amplify get-app --app-id d5jyd9buwcmp8 --region ap-northeast-1
+
+aws cloudformation deploy \
+  --template-file cf_temp/cloudfront.yaml \
+  --stack-name cloudfront-stack \
+  --region ap-northeast-1 \
+  --capabilities CAPABILITY_NAMED_IAM \
+  --parameter-overrides \
+    DomainName=ksc.asia \
+    HostedZoneId=Z07026393O5F1PJYFGP6O \
+    AmplifyDistributionDomainName=main.d5jyd9buwcmp8.amplifyapp.com \
+    CertificateArn=arn:aws:acm:us-east-1:312556765073:certificate/212c2c8e-007b-407c-bf1c-431385a27f0c
+
+    固定値は手動で調べる
 
 
