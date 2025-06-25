@@ -11,6 +11,9 @@ Parameters:
   AmplifyDistributionDomainName:
     Type: String
     Description: AmplifyDistributionDomainName
+  AppSyncDomainName:
+    Type: String
+    Description: pzjdggifqfetjp3vr6awpcqtcq.appsync-api.ap-northeast-1.amazonaws.com
   CertificateArn:
     Type: String
     Description: ACM証明書のARN（us-east-1のもの）
@@ -33,6 +36,13 @@ Resources:
               HTTPPort: 80
               HTTPSPort: 443
               OriginProtocolPolicy: https-only
+
+          - Id: AppSyncOrigin
+            DomainName: !Ref AppSyncDomainName
+            CustomOriginConfig:
+              HTTPSPort: 443
+              OriginProtocolPolicy: https-only
+
         DefaultCacheBehavior:
           TargetOriginId: AmplifyOrigin
           ViewerProtocolPolicy: redirect-to-https
@@ -47,6 +57,28 @@ Resources:
             QueryString: false
             Cookies:
               Forward: none
+
+        CacheBehaviors:
+          - PathPattern: graphql
+            TargetOriginId: AppSyncOrigin
+            ViewerProtocolPolicy: redirect-to-https
+            AllowedMethods:
+              - HEAD
+              - DELETE
+              - POST
+              - GET
+              - OPTIONS
+              - PUT
+              - PATCH
+            CachedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+            ForwardedValues:
+              QueryString: true
+              Headers:
+                - Authorization
+
         ViewerCertificate:
           AcmCertificateArn: !Ref CertificateArn
           SslSupportMethod: sni-only

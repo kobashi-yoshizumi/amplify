@@ -112,6 +112,7 @@ aws cloudformation deploy \
     DomainName=ksc.asia \
     HostedZoneId=Z07026393O5F1PJYFGP6O \
     AmplifyDistributionDomainName=main.d5jyd9buwcmp8.amplifyapp.com \
+    AppSyncDomainName=pzjdggifqfetjp3vr6awpcqtcq.appsync-api.ap-northeast-1.amazonaws.com \
     CertificateArn=arn:aws:acm:us-east-1:312556765073:certificate/212c2c8e-007b-407c-bf1c-431385a27f0c
 
     固定値は手動で調べる
