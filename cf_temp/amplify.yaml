@@ -26,7 +26,7 @@ Resources:
       Platform: WEB
       EnvironmentVariables:
         - Name: APP_SYNC_URL
-          Value: '{{resolve:ssm:AppSyncAPIURL:2}}'
+          Value: 'https://ksc.asia/graphql'
         - Name: USER_POOL_ID
           Value: '{{resolve:ssm:UserPoolId:1}}'
         - Name: USER_POOL_CLIENT_ID
