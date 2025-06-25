@@ -99,9 +99,7 @@ PAT消失により作り直しが必要な場合、復旧には計画停止が�
 
 
 
-## CF作成
-CFドメイン確認
-aws amplify get-app --app-id d5jyd9buwcmp8 --region ap-northeast-1
+## CLOUD FLONT作成
 
 aws cloudformation deploy \
   --template-file cf_temp/cloudfront.yaml \
