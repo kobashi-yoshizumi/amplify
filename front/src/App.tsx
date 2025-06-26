@@ -131,7 +131,7 @@ const App: React.FC = () => {
         placeholder="Content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        style={{ width: "100%", padding: "8px", marginBottom: "10px", height: "10px" }}
+        style={{ width: "100%", padding: "8px", marginBottom: "10px", height: "50px" }}
       />
       <button
         style={{
