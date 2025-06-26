@@ -70,14 +70,13 @@ Resources:
               - OPTIONS
               - PUT
               - PATCH
-            CachedMethods:
-              - GET
-              - HEAD
-              - OPTIONS
             ForwardedValues:
               QueryString: true
               Headers:
                 - Authorization
+            MinTTL: 0
+            DefaultTTL: 0
+            MaxTTL: 0
 
         ViewerCertificate:
           AcmCertificateArn: !Ref CertificateArn
@@ -91,7 +90,7 @@ Resources:
       Type: A
       AliasTarget:
         DNSName: !GetAtt CloudFrontDistribution.DomainName
-        HostedZoneId: Z2FDTNDATAQYW2  # CloudFront固定
+        HostedZoneId: Z2FDTNDATAQYW2
 
   Route53RecordWWW:
     Type: AWS::Route53::RecordSet
