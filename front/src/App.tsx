@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getCurrentUser, signOut } from "aws-amplify/auth"; // ✅ Cognito認証
-import { generateClient } from "aws-amplify/api"; // ✅ Amplify API
+import { getCurrentUser, signOut } from "aws-amplify/auth";
+import { generateClient } from "aws-amplify/api";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { listRecords } from "./graphql/queries";
-import { createRecord } from "./graphql/mutations";
+import { createRecord, deleteRecord } from "./graphql/mutations";
 import "@aws-amplify/ui-react/styles.css";
 
 type Record = {
@@ -75,6 +75,29 @@ const App: React.FC = () => {
     }
   };
 
+  const handleDeleteRecord = async (id: string) => {
+    if (!window.confirm("このレコードを削除しますか？")) {
+      return;
+    }
+
+    try {
+      await client.graphql({
+        query: deleteRecord,
+        variables: {
+          input: {
+            id,
+          },
+        },
+        authMode: "userPool",
+      });
+
+      await fetchRecords();
+    } catch (error) {
+      console.error("Error deleting record:", error);
+      alert("削除に失敗しました");
+    }
+  };
+
   return (
     <div style={{ maxWidth: "600px", margin: "0 auto", textAlign: "center" }}>
       <h1>Welcome {user.username}!</h1>
@@ -108,7 +131,7 @@ const App: React.FC = () => {
         placeholder="Content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        style={{ width: "100%", padding: "8px", marginBottom: "10px", height: "100px" }}
+        style={{ width: "100%", padding: "8px", marginBottom: "10px", height: "10px" }}
       />
       <button
         style={{
@@ -135,10 +158,27 @@ const App: React.FC = () => {
               border: "1px solid #ddd",
               padding: "10px",
               margin: "10px 0",
+              position: "relative",
             }}
           >
             <h3>{record.title}</h3>
             <p>{record.content}</p>
+            <button
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "10px",
+                backgroundColor: "#dc3545",
+                color: "white",
+                border: "none",
+                padding: "5px 10px",
+                borderRadius: "3px",
+                cursor: "pointer",
+              }}
+              onClick={() => handleDeleteRecord(record.id)}
+            >
+              削除
+            </button>
           </li>
         ))}
       </ul>

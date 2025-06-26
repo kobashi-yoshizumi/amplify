@@ -7,3 +7,11 @@ export const createRecord = /* GraphQL */ `
     }
   }
 `;
+
+export const deleteRecord = /* GraphQL */ `
+  mutation DeleteRecord($input: DeleteRecordInput!) {
+    deleteRecord(input: $input) {
+      id
+    }
+  }
+`;
