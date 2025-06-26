@@ -28,11 +28,11 @@ Resources:
         - Name: APP_SYNC_URL
           Value: 'https://ksc.asia/graphql'
         - Name: USER_POOL_ID
-          Value: '{{resolve:ssm:UserPoolId:1}}'
+          Value: '{{resolve:ssm:UserPoolId}}'
         - Name: USER_POOL_CLIENT_ID
-          Value: '{{resolve:ssm:UserPoolClientId:1}}'
+          Value: '{{resolve:ssm:UserPoolClientId}}'
         - Name: DUMMY_PARAM
-          Value: '{{resolve:ssm:UserPoolClientId:1}}'
+          Value: '{{resolve:ssm:UserPoolClientId}}'
 
       BuildSpec: |
         version: 1
